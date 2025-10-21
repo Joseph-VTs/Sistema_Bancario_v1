@@ -39,3 +39,21 @@ Underline = '\033[4m'
 Piscando = '\033[5m'
 Reverse = '\033[7m'
 Riscado = '\033[9m'
+
+
+
+#----------------------------------------
+# UTEIS
+#----------------------------------------
+
+# Ideia da IA
+import os
+def Limpar_Terminal():
+    while True:
+        Ops = input(f"❗ Aperte {Yellow_Ligth}ENTER{Reset} Para Continuar")
+        if Ops == '':
+            break
+        else:
+            print(f"❗ Aperte {Red_Ligth}ENTER{Reset} Para Continuar")
+            
+    os.system('cls' if os.name == 'nt' else 'clear')
