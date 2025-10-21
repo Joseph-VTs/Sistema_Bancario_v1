@@ -100,7 +100,7 @@ Notas_Aceitas = [20, 50, 100]
 def Valor_Validado(Valor, Notas):
     if Valor < 0:
         return False
-    return Combinar(Valor, Notas):
+    return Combinar(Valor, Notas)
 
 def Combinar(Valor, Notas):
     if Valor == 0:
