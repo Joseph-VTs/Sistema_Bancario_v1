@@ -57,3 +57,8 @@ def Limpar_Terminal():
             print(f"❗ Aperte {Red_Ligth}ENTER{Reset} Para Continuar")
             
     os.system('cls' if os.name == 'nt' else 'clear')
+
+
+from datetime import datetime
+def Data_Hora():
+    return datetime.now.strftime("%d/%m/%Y %H:%M")
