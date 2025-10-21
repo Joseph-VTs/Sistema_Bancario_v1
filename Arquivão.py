@@ -43,7 +43,7 @@ Riscado = '\033[9m'
 
 
 #----------------------------------------
-# UTEIS
+# UTEIS / Configurações
 #----------------------------------------
 
 # Ideia da IA
@@ -62,3 +62,54 @@ def Limpar_Terminal():
 from datetime import datetime
 def Data_Hora():
     return datetime.now.strftime("%d/%m/%Y %H:%M")
+
+
+import random
+def Random_Conta_Acesso():
+    return f"{random.randint(0, 999999):06}"
+
+def Random_Conta_Cartao(Tipo='Crédito'):
+    if Tipo == 'Crédito':
+        Prefixo = random.choice(['4', '5'])  # Visa ou MasterCard
+    elif Tipo == 'Débito':
+        Prefixo = random.choice(['6', '7'])  # Simulação para débito
+    else:
+        Prefixo = '9'  # Genérico
+
+    Restante = ''.join(random.choices('0123456789', k=15))  # Total 16 dígitos com Prefixo
+    Numero = Prefixo + Restante[:15]
+    return f"{Numero[:4]}.{Numero[4:8]}.{Numero[8:12]}.{Numero[12:16]}"
+    
+import string
+def Random_Chave_Pix(Tamanho=32):
+    Caracteres = string.ascii_letters + string.digits
+    Chave = ''.join(random.choice(Caracteres, k=Tamanho))
+    return Chave
+
+
+
+# Armazenamento das Contas
+Contas_Acesso = []
+Contas_Cartao = []
+Chaves_Pix = []
+
+# Notas Aceitas no Caixa Eletrônico
+Notas_Aceitas = [20, 50, 100]
+
+# Validar Valores de Entrada e Saída no Caixa Eletrônico
+def Valor_Validado(Valor, Notas):
+    if Valor < 0:
+        return False
+    return Combinar(Valor, Notas):
+
+def Combinar(Valor, Notas):
+    if Valor == 0:
+        return True
+    
+    if Valor < 0:
+        return False
+    
+    for Cada_Nota in Notas:
+        if Combinar(Valor - Cada_Nota, Notas):
+            return True
+    return False
