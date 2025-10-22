@@ -65,6 +65,7 @@ def Data_Hora():
 
 # Armazenamento das Contas
 Contas_Acesso = []
+Contas_Cartao = []
 Chaves_Pix = []
 
 import random
